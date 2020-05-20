@@ -1,0 +1,4 @@
+composer dumpautoload
+
+Descomentar o sqlLite no PHP.ini
+extension=pdo_sqlite
