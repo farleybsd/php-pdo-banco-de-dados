@@ -2,3 +2,5 @@ composer dumpautoload
 
 Descomentar o sqlLite no PHP.ini
 extension=pdo_sqlite
+
+FETCH_STYLES FORMAS DE TRAZER O OBJETO DO BANCO
