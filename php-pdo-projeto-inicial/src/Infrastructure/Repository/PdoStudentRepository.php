@@ -5,6 +5,7 @@ namespace Alura\Pdo\Infrastructure\Repository;
 use Alura\Pdo\Domain\Model\Student;
 use Alura\Pdo\Domain\Repository\StudentRepository;
 use PDO;
+use RuntimeException;
 
 class PdoStudentRepository implements StudentRepository
 {
@@ -62,6 +63,10 @@ class PdoStudentRepository implements StudentRepository
     {
         $insertQuery = 'INSERT INTO students (name, birth_date) VALUES (:name, :birth_date);';
         $stmt = $this->connection->prepare($insertQuery);
+
+        if ($stmt === false) {
+            throw new RuntimeException('Erro na query do Banco de Daodos');
+        }
 
         $success = $stmt->execute([
             ':name' => $student->name(),
