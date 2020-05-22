@@ -7,6 +7,7 @@ class Student
     private ?int $id;
     private string $name;
     private \DateTimeInterface $birthDate;
+    private array $phone = [];
 
     public function __construct(?int $id, string $name, \DateTimeInterface $birthDate)
     {
@@ -49,5 +50,15 @@ class Student
         return $this->birthDate
             ->diff(new \DateTimeImmutable())
             ->y;
+    }
+
+    public function addPhones(Phone $phone): void
+    {
+        $this->phones[] = $phone;
+    }
+
+    public function phones()
+    {
+        return $this->phone;
     }
 }
