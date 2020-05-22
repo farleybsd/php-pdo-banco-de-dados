@@ -64,9 +64,9 @@ class PdoStudentRepository implements StudentRepository
         $insertQuery = 'INSERT INTO students (name, birth_date) VALUES (:name, :birth_date);';
         $stmt = $this->connection->prepare($insertQuery);
 
-        if ($stmt === false) {
-            throw new RuntimeException('Erro na query do Banco de Daodos');
-        }
+        // if ($stmt === false) {
+        //     throw new RuntimeException($this->connection->errorInfo()[2]);
+        // }
 
         $success = $stmt->execute([
             ':name' => $student->name(),
